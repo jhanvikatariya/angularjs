@@ -1,0 +1,12 @@
+<!-- command to install Angular Material UI: ng add @angular/Material -->
+
+<!--Need to import every component from material UI in app.module.ts,
+then in imports it should be defined -->
+
+<!--Material button-->
+<h1>Angular material UI</h1>
+<button mat-button>Angular</button>
+<button mat-button color="primary">Angular</button>
+
+<!--Material slider-->
+<mat-slider min="1" max="100" ></mat-slider>
