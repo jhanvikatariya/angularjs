@@ -1,0 +1,45 @@
+          // APP.COMPONENT.HTML
+
+<!--Make a users component and add it as a child component for app component-->
+<h1>Pass data from parent to child component</h1>
+
+<app-users [greeting]="data" [emp]="info"></app-users>
+
+          //APP.COMPONENT.TS
+
+  data="Welcome"
+  info={
+    name: "George",
+    age: 30
+  }
+  
+          //USERS.COMPONENT.HTML
+  
+<h3>Child Component</h3>
+<h2>{{greeting}}</h2>
+<h4>{{emp.name}}</h4>
+<h4>{{emp.age}}</h4>
+
+          //USERS.COMPONENT.TS
+
+import { Component, OnInit,Input } from '@angular/core';
+
+@Component({
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.css']
+})
+export class UsersComponent implements OnInit {
+
+  @Input() greeting: any
+  @Input() emp: any
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  
+}
+function sendData() {
+  throw new Error('Function not implemented.');
+}
