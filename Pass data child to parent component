@@ -1,0 +1,35 @@
+<!--Calling data from child to parent component on button click-->
+
+//APP.COMPONENT.HTML
+<h1>Send data child to parent component</h1>
+<app-users (parentFunction)="parentFunction($event)"></app-users>
+
+//APP.COMPONENT.TS
+  parentFunction(data:any){
+    console.warn(data)
+  }
+
+//USERS.COMPONENT.HTML
+<button (click)="sendData()">Send data</button>
+
+//USERS.COMPONENT.TS
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.css']
+})
+export class UsersComponent implements OnInit {
+ 
+  @Output() parentFunction: EventEmitter<any>=new EventEmitter()
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  sendData()
+  {
+    let info={name:"Harry", age: 34}
+    this.parentFunction.emit(info)
+  }
+}
