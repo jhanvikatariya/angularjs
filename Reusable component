@@ -1,0 +1,46 @@
+// APP.COMPONENT.HTML
+<h1>Reusable Component</h1>
+<div *ngFor="let item of users">
+<app-users [list]="item"></app-users>
+</div>
+
+//APP.COMPONENT.TS
+users=[
+  {
+    name:"Aman", 
+    age:25,
+    address:"Canada"
+  },
+  {
+    name:"Rahul", 
+    age:30,
+    address:"Mexico"
+  },
+  {
+    name:"John", 
+    age:23,
+    address:"Africa"
+  }
+]
+
+//USERS.COMPONENT.HTML
+<p>{{list.name}}</p>
+<p>{{list.age}}</p>
+<p>{{list.address}}</p>
+
+//USERS.COMPONENT.TS
+import { Component, OnInit,Input } from '@angular/core';
+
+@Component({
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.css']
+})
+export class UsersComponent implements OnInit {
+@Input() list:any
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  
+}
