@@ -40,6 +40,4 @@ export class UsersComponent implements OnInit {
   }
   
 }
-function sendData() {
-  throw new Error('Function not implemented.');
-}
+
