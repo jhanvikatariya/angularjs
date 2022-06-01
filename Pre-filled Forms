@@ -1,0 +1,30 @@
+//App.Component.html
+
+<h1>Pre-filled Forms</h1>
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <input type="text" name="username" [ngModel]="userData.username" placeholder="enter username">
+    <br><br>
+    <input type="password" name="password" [ngModel]="userData.password" placeholder="enter password">
+    <br><br>
+    <input type="text" name="address" [ngModel]="userData.address" placeholder="enter address">
+    <br><br>
+    <input type="text" name="mobile" [ngModel]="userData.mobile" placeholder="enter mobile">
+    <br><br>
+    <button type="submit">Save</button>
+</form>
+
+//App.Component.ts
+
+userData={
+  username:"test@test.com",
+  password:"1234",
+  address:"USA",
+  mobile:"9999999999"
+}
+onSubmit(data:any){
+  console.log(data)
+}
+
+//App.module.ts
+
+import {FormsModule} from '@angular/forms';
