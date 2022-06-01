@@ -1,0 +1,45 @@
+// App.Component.html
+
+<h1>Template-driven Forms</h1>
+<div class="col-sm-4">
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input  type="email" class="form-control" name="email" ngModel
+      #Email="ngModel" required
+       aria-describedby="emailHelp" placeholder="Enter email">
+    <span
+    *ngIf="Email.invalid && Email.touched"
+    class="error">email field is required</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input  type="password" class="form-control" name="password" ngModel
+       placeholder="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+//App.component.ts
+
+  onSubmit(data:any){
+    console.warn(data)
+  }
+  
+  //App.component.css
+  
+input.ng-valid{
+  border-left: 5px solid green;
+}
+input.ng-invalid{
+  border-left: 5px solid red;
+}
+.error{
+color: red;
+}
+
+//App.module.ts
+
+import {FormsModule} from '@angular/forms';
