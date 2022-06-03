@@ -1,0 +1,18 @@
+// App.component.html
+
+<h1>Calling A function in angular with different events</h1>
+<button (click)="myEvent('click event')">Click me</button>
+<br><br>
+<input type="text" #box (keydown)="myEvent(box.value)" /><br><br>
+<input type="text" #box (blur)="myEvent('blur event')" />
+<div
+(mouseleave)="myEvent('mouse left')"
+style="background-color: cyan;">
+    Mouse leave event
+</div>
+
+//App.component.ts
+
+myEvent(evt){
+console.log(evt)
+}
