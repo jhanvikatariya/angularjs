@@ -1,0 +1,36 @@
+// To perform routing in angular need to install routing-module.ts file in the app component
+// 2 steps to get the file:-
+// 1) While creating a new project choose to add routing
+// 2) If not chosen to add routing, provide the following command: 
+//  ng generate module app-routing --flat --module=app
+
+
+// App.component.html
+
+<h1>My Website</h1>
+<a routerLink="login">Login Page</a>
+<router-outlet></router-outlet>
+
+// App-routing.module.ts
+
+import { NgModule } from '@angular/core';
+import {Routes, RouterModule} from '@angular/router'
+import{ LoginPageComponent} from './login-page/login-page.component;
+const routes: Routes=[
+
+  {
+    path:"login",
+    component: LoginPageComponent
+  },
+];
+
+@NgModule({
+  declarations: [],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+// App.module.ts
+
+import { LoginPageComponent} from './login-page/login-page.component'
