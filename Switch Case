@@ -1,0 +1,21 @@
+// App.component.html
+
+<div [ngSwitch]="color" >
+    <h2 style="color:blue" *ngSwitchCase="'blue'">
+        Blue Color
+    </h2>
+    <h2  style="color:green" *ngSwitchCase="'green'">
+        Green Color
+    </h2>
+    <h2  style="color:yellow" *ngSwitchCase="'yellow'">
+        Yellow Color
+    </h2>
+    <h2 style="color:red"  *ngSwitchCase="'red'">
+        Red Color
+    </h2>
+    
+</div>
+
+//App.component.ts
+
+color="blue"
