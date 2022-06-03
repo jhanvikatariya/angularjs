@@ -1,0 +1,40 @@
+// App.component.html
+
+<h1>For loop</h1>
+<table border="1">
+    <tr>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Email</td>
+    </tr>
+    <tr *ngFor="let item of data">
+        <td>{{item.name}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.email}}</td>
+    </tr>
+</table>
+
+//App.component.ts
+
+data=[
+{
+    name:'harry',
+    age:24,
+    email:"xyz@test.com"
+},
+{
+    name:'peter',
+    age:26,
+    email:"abc@test.com"
+},
+{
+    name:'soham',
+    age:30,
+    email:"def@test.com"
+},
+{
+    name:'george',
+    age:20,
+    email:"pqr@test.com"
+}
+]
