@@ -1,0 +1,6 @@
+// Command to add bootstrap in angular
+//ng add @ng-bootstrap/ng-bootstrap
+
+// To use bootstrap features visit official website of angular bootstrap
+// In the website under Components section, one can find the codes for desired outputs
+// need to copy the code of particular file and paste it accordingly
