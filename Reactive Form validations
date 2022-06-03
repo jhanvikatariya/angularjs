@@ -1,0 +1,46 @@
+// App.Component.html
+
+<div class="col-sm-3">
+<form [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email." class="form-control" formControlName="username"  placeholder="Enter email">
+    <span
+    class="error"
+    *ngIf="username?.invalid && username?.touched">email field can not be empty</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" formControlName="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+//App.Component.ts
+
+
+import {FormControl, FormGroup, Validators} from '@angular/forms'
+
+  loginForm=new FormGroup({
+    username: new FormControl('',Validators.required),
+    password: new FormControl(''),
+  })
+  get username() { return this.loginForm.get('username')}
+}
+
+//App.Component.css
+
+input.ng-valid{
+  border-left: 5px solid green;
+}
+input.ng-invalid{
+  border-left: 5px solid red;
+}
+
+.error{
+color: red;
+}
+
+// App.Module.ts
+import {ReactiveForm} from '@angular/forms';
