@@ -1,0 +1,18 @@
+//App.component.html
+
+<h1>Simple form in Angular</h1>
+
+<form #simpleForm="ngForm" (ngSubmit)="getUserValue(simpleForm.value)">
+    <input type="text" ngModel name="username" placeholder="enter name"><br><br>
+    <input type="text" ngModel name="age" placeholder="enter age"><br><br>
+    <input type="text" ngModel name="address" placeholder="enter address"><br><br>
+    <input type="email" ngModel name="email" placeholder="enter email"><br><br>
+    <input type="password" ngModel name="password" placeholder="enter password"><br><br>
+    <button>Get User Value</button>
+</form>
+
+//App.component.ts
+
+getUserValue(value:any){
+   console.log(value);
+}
