@@ -1,0 +1,30 @@
+// Command to create custom directive:
+// ng generate directive Customdir
+
+// App.component.html
+
+<h1>Custom Directive</h1>
+<h3>Normal Heading</h3>
+<h3 appCustomdir>Custom Heading</h3>
+
+// customdir.directive.ts
+
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appCustomdir]'
+})
+export class CustomdirDirective {
+
+  constructor(private el:ElementRef) {
+    el.nativeElement.style.color="Red"
+    //   el.nativeElement.style.display="none"
+
+   }
+
+}
+
+// app.module.ts
+
+import { CustomdirDirective } from './customdir.directive';
+// And add it to declarations array
