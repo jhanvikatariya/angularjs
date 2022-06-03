@@ -1,0 +1,26 @@
+// App.Component.html
+
+<h1>If and else conditions in Angular</h1> -->
+<h2 *ngIf="show==true; then ifBlock else elseBlock"></h2>
+<ng-template #ifBlock>
+    <h2>if Block</h2>
+</ng-template>
+<ng-template #elseBlock>
+    <h2>else Block</h2>
+</ng-template>
+
+<ng-template [ngIf]="color=='red'">
+<h2>Red Block</h2>
+</ng-template>
+<ng-template [ngIf]="color=='green'">
+<h2>Green Block</h2>
+</ng-template>
+<ng-template [ngIf]="color=='blue'">
+<h2>Blue Block</h2>
+</ng-template>
+
+// App.Componen.ts
+
+
+show=true
+color="red"
