@@ -1,0 +1,17 @@
+// App.component.html
+
+<h1>Property Binding</h1>
+<input type="text" [disabled]="disabledBox" [value]="name"/>
+<br>
+<br>
+<input type="text" [disabled]="disabledBox" value={{name}}/>
+<br>
+<br>
+<button (click)="EnableBox()">Enable Box</button>
+
+// App.component.ts
+
+disabledBox=true;
+EnableBox(){
+this.disabledBox
+}
