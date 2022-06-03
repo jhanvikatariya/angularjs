@@ -1,0 +1,20 @@
+//App.component.html
+
+<h1>Style Binding</h1>
+<h1 style="color: green;">Header 1</h1>
+<h1 [style.color]="'orange'">Header 1</h1>
+<h1 [style.color]="color">Dynamic Style</h1>
+<h1 [style.color]="err?'blue':'cyan'">Conditional Style</h1>
+
+<button (click)="updateState()">Update Color</button>
+
+//App.component.ts
+
+err=true;
+color='purple'
+updatedColor(){
+  this.color="yellow"
+}
+updateState(){
+  this.err=false;
+}
