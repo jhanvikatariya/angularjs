@@ -1,0 +1,13 @@
+// App.component.html
+
+<input type="text" #box />
+<button (click)="getVal(box.value)">Get Value</button>
+<h2>{{currentVal}}</h2> 
+
+//App.component.ts
+
+currentVal=""
+getVal(val: any){
+console.warn(val);
+  this.currentVal=val;
+ }
