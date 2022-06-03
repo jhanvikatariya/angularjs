@@ -1,0 +1,39 @@
+// When any component is not defined and if one is trying to route link of the component an error page should occur
+// For that a page-not-found component is needed to be created
+
+// App.component.html
+
+<h1>My Website</h1>
+<a routerLink="login">Login Page</a>
+<!--About component is not existing, so on going to this ling error page would load-->
+<a routerLink="about">About Page</a>
+<router-outlet></router-outlet>
+
+// App-routing.module.ts
+
+import { NgModule } from '@angular/core';
+import {Routes, RouterModule} from '@angular/router'
+import { LoginPageComponent} from './website/login-page/login-page.component'
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component'
+ const routes: Routes=[
+
+  {
+    path:"login",
+    component: LoginPageComponent
+  },
+  {
+    path:"**",
+    component: PageNotFoundComponent
+  }
+];
+
+@NgModule({
+  declarations: [],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+// Page-not-found.component.html
+
+<h4 style="color:red">Error 404 occured !!</h4>
