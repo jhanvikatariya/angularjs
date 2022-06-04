@@ -1,0 +1,39 @@
+// Command to create service:
+// ng generate service UserData
+
+//UserData.service.ts
+
+import { Injectable } from '@angular/core';
+@Injectable({
+  providedIn: 'root'
+})
+export class UsersDataService {
+
+  constructor() {}
+
+getdata(){
+  return {
+    name:'Harry',
+    age:23,
+    id: 6
+  }
+}
+}
+
+//App.component.ts
+
+import { Component } from '@angular/core';
+import { UserDataService } from './user-data.service'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+constructor(private user:UsersDataService){
+  console.log(this.user.getdata());
+}
+
+}
+
