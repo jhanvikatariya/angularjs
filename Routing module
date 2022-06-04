@@ -1,0 +1,69 @@
+// A routing module can even be created by adding --routing along with the command of creating a new module
+//Eg: ng g m admin --routing
+
+//create an admin module having routing, with 2 components: Login and List
+
+//App.component.html
+
+<h1>Routing Module</h1>
+<a routerLink="login">Login</a><br><br>
+<a routerLink="list">List</a>
+<router-outlet></router-outlet>
+
+//App.module.ts
+
+import { AdminModule } from './admin/admin.module';
+
+// and add it to imports
+
+//Admin-routing.module.ts
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+
+const routes: Routes = [
+  {path:"login", component:LoginComponent},
+  {path:"list", component:ListComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class AdminRoutingModule { }
+
+//Admin.module.ts
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { AdminRoutingModule } from './admin-routing.module';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+
+
+@NgModule({
+  declarations: [
+    LoginComponent,
+    ListComponent
+  ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule
+  ],
+  exports:[
+    LoginComponent,
+    ListComponent
+  ]
+})
+export class AdminModule { }
+
+//Login.component.html
+
+<h1>Login Page</h1>
+
+//List.Component.html
+
+<h1>List Page</h1>
