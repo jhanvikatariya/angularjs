@@ -1,0 +1,29 @@
+// App.component.ts
+
+import { Component } from '@angular/core';
+
+interface DataTypes{
+  name:string,
+  id:number,
+  address:any,
+  indian:boolean
+}
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+getData(){
+  const data={
+    name:"Arun",
+    id:23,
+    address:'Gujarat',
+    indian:true
+  }
+  return data
+}
+}
+
+
