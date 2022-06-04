@@ -1,0 +1,58 @@
+// App.component.html
+
+<h1>Api data showing in a list</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>User Id</td>
+    </tr>
+    <tr *ngFor="let item of data">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.userId}}</td>
+    </tr>
+</table>
+
+//App.component.css
+
+table, tr, td {
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+//App.component.ts
+
+data:any=[];
+constructor(private user:UsersDataService){
+this.user.getData().subscribe(data=>{
+  console.log(data);
+  this.data=data;
+})
+}
+
+//userdata.service.ts
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+@Injectable({
+  providedIn: 'root'
+})
+export class UsersDataService {
+
+  constructor(private http:HttpClient) {
+   
+   }
+   getData(){
+    let url="https://jsonplaceholder.typicode.com/todos/";
+    return this.http.get(url);
+  }
+
+}
+
+
+//app.module.ts
+
+import { HttpClientModule } from '@angular/common/http';
+
+// and add the modules to imports
