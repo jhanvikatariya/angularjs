@@ -1,0 +1,135 @@
+// Create 2 modules having same named components
+// Admin and User module having login and list components respectively
+
+//App.component.html
+
+<h1>Group Routing</h1>
+<h3>Admin</h3>
+<ul>
+    <li><a routerLink="admin/login">Login</a><br></li>
+    <li><a routerLink="admin/list">List</a></li>
+</ul>
+<h3>User</h3>
+<ul>
+    <li><a routerLink="user/login">Login</a><br></li>
+    <li><a routerLink="user/list">List</a></li>
+</ul>
+<router-outlet></router-outlet>
+
+//App.module.ts
+
+import { AdminModule } from './admin/admin.module';
+import { UserModule } from './user/user.module';
+
+//and add them to imports
+
+//Admin-routing.module.ts
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+
+const routes: Routes = [{
+  path:"admin", children:[
+   {path:"login", component:LoginComponent},
+   {path:"list", component:ListComponent}
+    ]
+ }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class AdminRoutingModule { }
+
+//Admin.module.ts
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { AdminRoutingModule } from './admin-routing.module';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+
+
+@NgModule({
+  declarations: [
+    LoginComponent,
+    ListComponent
+  ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule
+  ],
+  exports:[
+    LoginComponent,
+    ListComponent
+  ]
+})
+export class AdminModule { }
+
+//Admin/Login.component.html
+
+<h3>Admin Login Page</h3>
+
+//Admin/List.component.ts
+
+<h3>Admin List Page</h3>
+
+//User-routing.module.ts
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+
+const routes: Routes = [{
+   path:"user", children:[
+    {path:"login", component:LoginComponent},
+    {path:"list", component:ListComponent}
+     ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class UserRoutingModule { }
+
+//user.module.ts
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { UserRoutingModule } from './user-routing.module';
+import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
+
+
+@NgModule({
+  declarations: [
+    LoginComponent,
+    ListComponent
+  ],
+  imports: [
+    CommonModule,
+    UserRoutingModule
+  ],
+  exports:[
+    LoginComponent,
+    ListComponent
+  ]
+})
+export class UserModule { }
+
+//User/Login.component.html
+
+<h3>User Login Page</h3>
+
+//User/List.component.html
+
+<h3>User Login Page</h3>
+
